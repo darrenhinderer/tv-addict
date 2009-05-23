@@ -1,24 +1,29 @@
-<h1>Editing show</h1>
+<h1>Search for a show</h1>
+
+<% form_tag(search_series_path, :method => :get)  do |f| %>
+    <input name="query" value="<%= @show.name %>" type="text">
+    <input name="id" value="<%=params[:id]%>" type="hidden">
+    <input type="submit" value="Search">
+<% end %>
+
+<h1>Edit Show</h1>
 
 <% form_for(@show) do |f| %>
-  <%= f.error_messages %>
-
   <p>
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :value => params[:name] %>
   </p>
   <p>
-    <%= f.label :on_air %><br />
-    <%= f.text_field :on_air %>
+    <%= f.label :banner_url %><br />
+    <%= f.text_field :banner_url, :value => params[:banner] %>
   </p>
   <p>
-    <%= f.label :hulu_url %><br />
-    <%= f.text_field :hulu_url %>
+    <%= f.label :imdb_url %><br />
+    <%= f.text_field :imdb_url, :value => params[:imdb] %>
   </p>
   <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @show %> |
 <%= link_to 'Back', shows_path %>

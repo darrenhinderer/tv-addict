@@ -2,10 +2,12 @@
 
 <% @series.each do |s| %>
   <% if s.banner %>
-    <%= image_tag s.banner %><%= link_to "Add", new_show_path(:name => s.name, :banner => s.banner, :imdb => s.imdb) %><br/>
+    <%= image_tag s.banner %>
   <% else %>
     <h3><%= s.name %></h3>
   <% end %>
- <br/>  
+  <%= link_to "Add", new_show_path(:name => s.name, :banner => s.banner, :imdb => s.imdb) %>
+  <%= link_to "Update", edit_show_path(:id => params[:id],:name => s.name, :banner => s.banner, :imdb => s.imdb) %>
+ <br/><br/>  
 <% end %> 
 

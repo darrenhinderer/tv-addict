@@ -4,3 +4,4 @@ config/database.yml
 config/facebooker.yml
 config/deploy.rb
 public/images/banners/graphical/*.jpg
+public/images/banners/text/*.jpg

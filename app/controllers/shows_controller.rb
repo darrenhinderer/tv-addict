@@ -8,7 +8,6 @@ class ShowsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @shows }
     end
   end
 
@@ -17,7 +16,6 @@ class ShowsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @show }
     end
   end
 
@@ -27,7 +25,6 @@ class ShowsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @show }
     end
   end
 
@@ -42,10 +39,8 @@ class ShowsController < ApplicationController
       if @show.save
         flash[:notice] = 'Show was successfully created.'
         format.html { redirect_to('/shows') }
-        format.js
       else
         format.html { render :action => "new" }
-        format.js
       end
     end
   end
@@ -56,11 +51,9 @@ class ShowsController < ApplicationController
     respond_to do |format|
       if @show.update_attributes(params[:show])
         flash[:notice] = 'Show was successfully updated.'
-        format.html { redirect_to(@show) }
-        format.xml  { head :ok }
+        format.html { redirect_to(shows_url) }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @show.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -71,7 +64,6 @@ class ShowsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(shows_url) }
-      format.xml  { head :ok }
     end
   end
 
