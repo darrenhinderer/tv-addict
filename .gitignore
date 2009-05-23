@@ -3,3 +3,4 @@ log
 config/database.yml
 config/facebooker.yml
 config/deploy.rb
+images/banners/graphical/*.jpg

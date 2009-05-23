@@ -27,6 +27,17 @@ module TVDB
     series_list
   end
 
+  def self.download_image(filename)
+    image_url = "http://thetvdb.com/banners/#{filename}"
+    uri = URI.parse(image_url)
+    path = "public/images#{uri.path}"
+    unless File.exists?(path)
+      open(path, "wb") do |file|
+        file.write(Net::HTTP.get(uri))
+      end
+    end
+  end
+
   class REXML::Element
     def text(val)
       if get_text(val)
@@ -43,7 +54,8 @@ module TVDB
 
     def safe_banner=(val)
       if val
-        self.banner = "http://thetvdb.com/banners/#{val}"
+        self.banner = "banners/#{val}"
+        TVDB.download_image(val)
       end
     end
 
