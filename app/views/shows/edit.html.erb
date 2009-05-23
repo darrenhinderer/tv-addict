@@ -1,0 +1,24 @@
+<h1>Editing show</h1>
+
+<% form_for(@show) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :on_air %><br />
+    <%= f.text_field :on_air %>
+  </p>
+  <p>
+    <%= f.label :hulu_url %><br />
+    <%= f.text_field :hulu_url %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @show %> |
+<%= link_to 'Back', shows_path %>

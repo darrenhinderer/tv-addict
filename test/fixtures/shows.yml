@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  on_air: 
+  hulu_url: MyString
+
+two:
+  name: MyString
+  on_air: 
+  hulu_url: MyString

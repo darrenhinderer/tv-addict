@@ -1,0 +1,11 @@
+<h1> Search Results </h1>
+
+<% @series.each do |s| %>
+  <% if s.banner %>
+    <%= image_tag s.banner %><%= link_to "Add", new_show_path("show[name]" => s.name) %><br/>
+  <% else %>
+    <h3><%= s.name %></h3>
+  <% end %>
+ <br/>  
+<% end %> 
+

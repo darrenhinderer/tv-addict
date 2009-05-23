@@ -1,0 +1,8 @@
+<% content_for("invite_user") do %>
+	TV Addict is a simple way to update your profile with the TV shows that matter to you.  
+	<%= fb_req_choice("Check it out!", random_show_url()) %>
+<% end %>                      
+
+<% fb_request_form("TV Addict", "invite_user", random_show_url()) do %>
+<%= fb_multi_friend_selector("Invite your friends to check out TV Addict.", :showborder => true, :exclude_ids => @exclude_ids)   %>
+<% end %>

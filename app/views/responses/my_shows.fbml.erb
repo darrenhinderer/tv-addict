@@ -1,0 +1,55 @@
+<fb:dashboard>
+</fb:dashboard>
+
+<% unless @responses.empty? %>
+<fb:if-section-not-added section="info"> 
+  <fb:explanation>  
+    <fb:message>Put this on your Info tab</fb:message>
+    Your changes here will automatically be reflected in your profile.
+    <div align="right">
+      <fb:add-section-button section="info"/> 
+    </div>
+  </fb:explanation>
+</fb:if-section-not-added>
+<% end %>
+
+<% fb_tabs do %>
+    <%= fb_tab_item("Random Show", random_show_url, :selected => false)%>
+    <%= fb_tab_item("My Shows", my_shows_url, :selected => true)%>
+<% end %>
+<br/> 
+<h1>Shows I'm Watching</h1> 
+<p>
+<% for response in @responses %>
+  <% if response.status == "watching" %>
+   <h3><%= response.show.name %></h3>
+   <table>
+   <tr>
+   <td>
+   <%= link_to("Stop Watching", url_for(:controller => "responses", :action => "remove_response", :id => response.id))%><br/>
+   <% if !response.show.on_air %>
+   <%= link_to("Finished Watching Series", url_for(:controller => "responses", :action => "change_response_to_watched", :id => response.id))%><br/>
+   <% end %>
+   </td>
+   </tr>
+   </table>
+  <div style="height:5px;margin:0px;"></div>
+  <% end %>
+<% end %>
+</p>
+<br/>
+
+<h1>Shows I've Watched</h1> 
+<p>
+<% for response in @responses %>
+  <% if response.status == "watched" %>
+    <h3><%= response.show.name %></h3>
+    <table><tr><td>
+    <%= link_to("Delete from list", url_for(:controller => "responses", :action => "remove_response", :id => response.id))%><br/>
+    </td></tr></table>
+    <div style="height:5px;margin:0px;"></div>
+  <% end %>
+<% end %>
+</p>
+<br/>
+<div style="float:right;margin:5px;"><%= link_to("Invite Friends to TV Addict", invite_friends_url()) %></div>

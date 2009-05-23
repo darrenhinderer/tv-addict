@@ -1,0 +1,25 @@
+
+<h1>Listing shows <%=@shows.size%></h1>
+<%= link_to 'New show', new_show_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>banner_url</th>
+    <th>imdb_url</th>
+  </tr>
+
+<% for show in @shows %>
+  <tr>
+    <td><%=h show.name %></td>
+    <td><%=h show.banner_url %></td>
+    <td><%=h show.imdb_url %></td>
+    <td><%= link_to 'Show', show %></td>
+    <td><%= link_to 'Edit', edit_show_path(show) %></td>
+    <td><%= link_to 'Destroy', show, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

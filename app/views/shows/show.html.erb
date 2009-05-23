@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @show.name %>
+</p>
+
+<p>
+  <b>On air:</b>
+  <%=h @show.on_air %>
+</p>
+
+<p>
+  <b>Hulu url:</b>
+  <%=h @show.hulu_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_show_path(@show) %> |
+<%= link_to 'Back', shows_path %>

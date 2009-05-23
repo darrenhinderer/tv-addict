@@ -1,0 +1,69 @@
+<fb:dashboard>
+</fb:dashboard>
+
+<% unless @current_user.responses.empty? %>
+<fb:if-section-not-added section="info"> 
+  <fb:explanation>  
+    <fb:message>Put this on your Info tab</fb:message>
+    Your changes here will automatically be reflected in your profile.
+    <div align="right">
+      <fb:add-section-button section="info"/> 
+    </div>
+  </fb:explanation>
+</fb:if-section-not-added>
+<% end %>
+
+<% fb_tabs do %>
+    <%= fb_tab_item("Random Show", random_show_url, :selected => true)%>
+    <%= fb_tab_item("My Shows", my_shows_url, :selected => false)%>
+<% end %>
+<% if @random_show != nil %>
+<br/>
+<h1><%= @random_show.name %></h1> 
+<p>
+<table>
+<tr>
+<td>
+<%= link_to("Add to <b>Shows I'm Watching</b>", add_to_watching_url(:show_id => @random_show.id))%><br/>
+<% if !@random_show.on_air %>
+<%= link_to("Add to <b>Shows I've Watched</b>", add_to_watched_url(:show_id => @random_show.id))%><br/>
+<% end %>
+</p>
+<p>
+<%= link_to("Add to <b>Shows I'll Never Watch</b>", add_to_never_watch_url(:show_id => @random_show.id))%><br/>
+</td>
+<td width="250" valign="top">
+<div style="width:100%;" align="right">
+
+<span style="color:#fff;background:#6D84B4;padding:4px;font-weight:bold;border:1px solid #36538F;">
+  <%= link_to("Next Show", random_show_url, :style => "color:#fff") %>
+</span>
+
+</a>
+</div>
+</td>
+</tr>
+</table>
+
+  <% unless @watching_friends.empty? %>
+  <p>
+  <h2>Friends who are watching <%= @random_show.name %></h2>
+  </p>
+  <p>
+  <table>
+  <% for friend in @watching_friends %>
+  <tr>
+  <td><fb:profile-pic uid="<%= friend.id %>" size="square"/></td>
+  <td width="10"></td>
+  <td><h3><fb:name uid="<%=friend.id%>"/></h3><br/></td>
+  </tr>
+  <% end %>
+  </table>
+  </p>
+  <% end %>
+<% else %>
+<br/>
+<fb:success message="You've looked through all the shows in our database!"/>
+<% end %>
+<br/>
+<div style="float:right;margin:5px;"><%= link_to("Invite Friends to TV Addict", invite_friends_url()) %></div>
