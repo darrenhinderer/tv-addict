@@ -22,6 +22,10 @@
     <%= f.text_field :imdb_url, :value => params[:imdb] %>
   </p>
   <p>
+    <%= f.label :overview %><br />
+    <%= f.text_area :overview, :value => params[:overview] %>
+  </p>
+  <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>

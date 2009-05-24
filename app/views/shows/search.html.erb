@@ -6,8 +6,8 @@
   <% else %>
     <h3><%= s.name %></h3>
   <% end %>
-  <%= link_to "Add", new_show_path(:name => s.name, :banner => s.banner, :imdb => s.imdb) %>
-  <%= link_to "Update", edit_show_path(:id => params[:id],:name => s.name, :banner => s.banner, :imdb => s.imdb) %>
+  <%= link_to "Add", new_show_path(:name => s.name, :banner => s.banner, :imdb => s.imdb, :overview => s.overview) %>
+  <%= link_to "Update", edit_show_path(:id => params[:id],:name => s.name, :banner => s.banner, :imdb => s.imdb, :overview => s.overview) %>
  <br/><br/>  
 <% end %> 
 

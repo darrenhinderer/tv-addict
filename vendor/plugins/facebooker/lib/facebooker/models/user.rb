@@ -245,7 +245,6 @@ module Facebooker
     # Note: using set_profile_info as I feel using user.set_info could be confused with the user.getInfo facebook method.
     #       Also, I feel it fits in line with user.set_profile_fbml.
     def set_profile_info(title, info_fields, format = :text)
-      puts info_fields.to_json
       session.post('facebook.profile.setInfo', :title => title, :uid => id, 
         :type => format.to_s == "text" ? 1 : 5, :info_fields => info_fields.to_json)
     end

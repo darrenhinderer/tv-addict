@@ -23,13 +23,11 @@
 <% for response in @responses %>
   <% if response.status == "watching" %>
    <h3><%= response.show.name %></h3>
+   <%= image_tag response.show.banner_url %>
    <table>
    <tr>
    <td>
    <%= link_to("Stop Watching", url_for(:controller => "responses", :action => "remove_response", :id => response.id))%><br/>
-   <% if !response.show.on_air %>
-   <%= link_to("Finished Watching Series", url_for(:controller => "responses", :action => "change_response_to_watched", :id => response.id))%><br/>
-   <% end %>
    </td>
    </tr>
    </table>
@@ -39,7 +37,7 @@
 </p>
 <br/>
 
-<h1>Shows I've Watched</h1> 
+<h1>Ignored Shows</h1> 
 <p>
 <% for response in @responses %>
   <% if response.status == "watched" %>
