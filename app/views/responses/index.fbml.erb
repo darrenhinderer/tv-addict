@@ -17,6 +17,9 @@
     <%= fb_tab_item("Random Show", random_show_url, :selected => true)%>
     <%= fb_tab_item("My Shows", my_shows_url, :selected => false)%>
 <% end %>
+<div style="float:right;margin:5px;font-weight:bold">
+  <%= link_to("Invite Friends to TV Addict", invite_friends_url()) %>
+</div>
 <% if @random_show != nil %>
 <br/>
 <h1><%= @random_show.name %></h1> 
@@ -24,17 +27,17 @@
 <p>
 <%= @random_show.overview %>
 </p>
-<br/>
 <p>
 <span style="color:#fff;background:#6D84B4;padding:4px;font-weight:bold;border:1px solid #36538F;">
-  <%= link_to("Skip series", random_show_url, :style => "color:#fff") %>
+  <%= link_to("Next show", random_show_url, :style => "color:#fff") %>
 </span>
 </p>
+<br/>
 <p>
-<%= link_to("<b>Start watching</b>", add_to_watching_url(:show_id => @random_show.id))%><br/>
+<%= link_to("<b>Start watching</b>", add_to_watching_url(:show_id => @random_show.id))%>
 </p>
 <p>
-<%= link_to("<b>Don't show me this</b>", add_to_never_watch_url(:show_id => @random_show.id))%><br/>
+<%= link_to("<b>Don't show me this</b>", add_to_never_watch_url(:show_id => @random_show.id))%>
 </p>
 
   <% unless @watching_friends.empty? %>
@@ -57,5 +60,3 @@
 <br/>
 <fb:success message="You've looked through all the shows in our database!"/>
 <% end %>
-<br/>
-<div style="float:right;margin:5px;"><%= link_to("Invite Friends to TV Addict", invite_friends_url()) %></div>

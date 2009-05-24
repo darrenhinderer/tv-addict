@@ -26,6 +26,10 @@
     <%= f.text_area :overview, :value => params[:overview] %>
   </p>
   <p>
+    <%= f.label :series_id %><br />
+    <%= f.text_field :series_id, :value => params[:series_id] %>
+  </p>
+  <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>

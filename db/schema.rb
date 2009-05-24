@@ -34,11 +34,10 @@ ActiveRecord::Schema.define(:version => 20090519035822) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "tvdb_id",    :limit => 11
     t.integer  "series_id",  :limit => 11
     t.string   "imdb_url"
     t.string   "banner_url"
-    t.string   "overview"
+    t.text     "overview"
   end
 
 end

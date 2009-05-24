@@ -4,13 +4,22 @@
 </p>
 
 <p>
-  <b>On air:</b>
-  <%=h @show.on_air %>
+  <b>Banner URL</b>
+  <%=@show.banner_url %><br/>
+  <%=image_tag @show.banner_url %>
 </p>
 
 <p>
-  <b>Hulu url:</b>
-  <%=h @show.hulu_url %>
+  <b>IMDB URL</b>
+  <%=h @show.imdb_url %>
+</p>
+<p>
+  <b>Overview</b>
+  <%=h @show.overview %>
+</p>
+<p>
+  <b>Series ID</b>
+  <%=h @show.series_id %>
 </p>
 
 

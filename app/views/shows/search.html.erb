@@ -1,13 +1,15 @@
 <h1> Search Results </h1>
 
 <% @series.each do |s| %>
-  <% if s.banner %>
-    <%= image_tag s.banner %>
+  <% if s.banner_url %>
+    <%= image_tag s.banner_url %>
   <% else %>
     <h3><%= s.name %></h3>
   <% end %>
-  <%= link_to "Add", new_show_path(:name => s.name, :banner => s.banner, :imdb => s.imdb, :overview => s.overview) %>
-  <%= link_to "Update", edit_show_path(:id => params[:id],:name => s.name, :banner => s.banner, :imdb => s.imdb, :overview => s.overview) %>
+  <%= link_to "Add", new_show_path(:name => s.name, :banner_url => s.banner_url, :imdb_url => s.imdb_url, :overview => s.overview, :series_id => s.series_id) %>
+  <% if params[:id] %>
+    <%= link_to "Update", edit_show_path(:id => params[:id],:name => s.name, :banner_url => s.banner_url, :imdb_url => s.imdb_url, :overview => s.overview, :series_id => s.series_id) %>
+  <% end %>
  <br/><br/>  
 <% end %> 
 

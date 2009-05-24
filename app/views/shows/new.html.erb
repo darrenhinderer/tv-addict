@@ -14,11 +14,19 @@
   </p>
   <p>
     <%= f.label :banner_url %><br />
-    <%= f.text_field :banner_url, :value => params[:banner] %>
+    <%= f.text_field :banner_url, :value => params[:banner_url] %>
   </p>
   <p>
     <%= f.label :imdb_url %><br />
-    <%= f.text_field :imdb_url, :value => params[:imdb] %>
+    <%= f.text_field :imdb_url, :value => params[:imdb_url] %>
+  </p>
+  <p>
+    <%= f.label :overview %><br />
+    <%= f.text_area :overview, :value => params[:overview] %>
+  </p>
+  <p>
+    <%= f.label :series_id %><br />
+    <%= f.text_field :series_id, :value => params[:series_id] %>
   </p>
   <p>
     <%= f.submit "Create" %>

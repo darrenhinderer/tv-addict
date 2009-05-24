@@ -19,8 +19,8 @@ module TVDB
       series.series_id = series_xml.text("seriesid")
       series.overview = series_xml.text("Overview")
       series.safe_first_aired = series_xml.text("FirstAired")
-      series.safe_banner = series_xml.text("banner")
-      series.safe_imdb = series_xml.text("IMDB_ID")
+      series.safe_banner_url = series_xml.text("banner")
+      series.safe_imdb_url = series_xml.text("IMDB_ID")
       series_list << series
     end
 
@@ -50,11 +50,11 @@ module TVDB
 
   class Series
     attr_accessor :id, :series_id, :name, :overview, 
-                  :first_aired, :banner, :imdb
+                  :first_aired, :banner_url, :imdb_url
 
-    def safe_banner=(val)
+    def safe_banner_url=(val)
       if val
-        self.banner = "banners/#{val}"
+        self.banner_url = "banners/#{val}"
         TVDB.download_image(val)
       end
     end
@@ -65,9 +65,9 @@ module TVDB
       end
     end
 
-    def safe_imdb=(val)
+    def safe_imdb_url=(val)
       if val
-        self.imdb = "http://www.imdb.com/title/#{val}/"
+        self.imdb_url = "http://www.imdb.com/title/#{val}/"
       end
     end
   end
