@@ -1,0 +1,6 @@
+I wrote this 2 years ago and I can't remember how to set it up!
+
+I do know it requires the facebooker gem. As well as the matching facebooker configuration. I don't think mine is checked in, because it has api codes and such.
+
+Shoot me an email if you run into problems and I'll be happy to take any pull requests with better setup instructions.
+
